@@ -145,13 +145,13 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
 
   ![07_creating_new_project](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/07_creating_new_project.png)
 
-- Operators > Installed Operators > Advanced Cluster Security for Kubernetes > Central 생성
+- **Operators > Installed Operators > Advanced Cluster Security for Kubernetes > Central 생성**
 
   ![08_creating_centrals](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/08_creating_centrals.png)
 
 - 설치 확인
 
-  - Operators > Installed Operators > Centrals 목록 > stackrox-central-services > 오른쪽에 Admin Credentials Info에서 명령어를 복사하여 패스워드 확인
+  - **Operators > Installed Operators > Centrals 목록 > stackrox-central-services > 오른쪽에 Admin Credentials Info에서 명령어를 복사하여 패스워드 확인**
 
     ```bash
     oc -n stackrox get secret central-htpasswd -o go-template='{{index .data "password" | base64decode}}'
@@ -159,9 +159,10 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
 
     또는 
 
-    Workloads > Secrets >  central-htpasswd  확인
+    **Workloads > Secrets >  central-htpasswd  확인**
+    ![14_stackrox_secret](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/14_stackrox_secret.png)
 
-- 네트워킹 > 라우트 > central 라우트를 통해 RHACS 콘솔 접속
+- **네트워킹 > 라우트 > central 라우트를 통해 RHACS 콘솔 접속**
 
   ![09_rhacs_console](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/09_rhacs_console.png)
 
