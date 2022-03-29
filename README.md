@@ -1,3 +1,5 @@
+## Red Hat Advanced Cluster Security for Kubernetes v3.69
+
 ### 1. Red Hat Advanced Cluster Security for Kubernetes architecture
 
 Red Hat Advanced Cluster for Security for Kubernetes는 다음 구성요소가 포함되어 있습니다.
@@ -8,9 +10,9 @@ Red Hat Advanced Cluster for Security for Kubernetes는 다음 구성요소가 �
 
 - Per-node component
 
-  ![01_components](C:\Works\01_자료\RHACS\Operators\01_components.png)
+  ![01_components](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/01_components.png)
 
-![02_architecture](C:\Works\01_자료\RHACS\Operators\02_architecture.png)
+![02_architecture](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/02_architecture.png)
 
 
 
@@ -59,8 +61,6 @@ Centralized components는 한 번만 배포하고 동일한 설치를 사용하�
 
 
 
-
-
 ### 2. Installation activities
 
 Red Hat Advanced Cluster Security for Kubernetes는 다음 방법으로 설치 할 수 있습니다.
@@ -69,11 +69,38 @@ Red Hat Advanced Cluster Security for Kubernetes는 다음 방법으로 설치 �
 - Installing quickly using Helm charts : Helm Chart를 사용하여 Red Hat Advanced Cluster Security를 설치 할 수 있습니다.
 - Installing quickly by using the `roxctl` CLI : `roxctl` CLI를 사용하여 Red Hat Advanced Cluster Security를 설치 할 수 있습니다. 
 
+### 2.1 roxctl CLI Install
 
+아래 내용을 참고하여 Linux 환경에 `roxctl` CLI를 설치할 수 있습니다.
 
-### 2.1 Installing by using an Operator
+- 최신 버전의 `roxctl` CLI 다운로드 (root 권한으로 실행합니다)
 
-**2.1.1 Red Hat Advanced Cluster Security for Kubernetes Operator**
+  ```bash
+  wget https://mirror.openshift.com/pub/rhacs/assets/3.69.0/bin/Linux/roxctl -O /usr/local/bin/roxctl
+  ```
+
+- 실행 권한 부여
+
+  ```bash
+  chmod +x /usr/local/bin/roxctl
+  ```
+
+- `PATH` 확인
+
+  ```bash
+  echo $PATH
+  ```
+
+- 설치한 `roxctl` 버전 확인
+
+  ```bash
+  $ roxctl version
+  3.69.0
+  ```
+
+### 2.2 Installing by using an Operator
+
+**2.2.1 Red Hat Advanced Cluster Security for Kubernetes Operator**
 
 - Red Hat Advanced Cluster Security for Kubernetes Operator에는 다음 두 가지 사용자 지정 리소스가 포함되어 있습니다.
   - `Central` : Central Resource는 다음 서비스의 논리적 그룹입니다.
@@ -84,17 +111,17 @@ Red Hat Advanced Cluster Security for Kubernetes는 다음 방법으로 설치 �
     - Collector 
     - Admission Controller
 
-**2.1.2 Installing Red Hat Advanced Cluster Security for Kubernetes Operator**
+**2.2.2 Installing Red Hat Advanced Cluster Security for Kubernetes Operator**
 
 - OpenShift Console 접속 > Operators > OperatorHub 선택
 
 - 검색창에 **Advanced Cluster Security** 검색 
 
-  ![03_acs_operator](C:\Works\01_자료\RHACS\Operators\03_acs_operator.png)
+  ![03_acs_operator](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/03_acs_operator.png)
 
 - **Red Hat Advanced Cluster Security for Kubernetes Operator** 선택 > 상세 정보 확인 
 
-  ![04_acs_operator_detail](C:\Works\01_자료\RHACS\Operators\04_acs_operator_detail.png)
+  ![04_acs_operator_detail](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/04_acs_operator_detail.png)
 
   - 설치 모드의 기본값을 **클러스터의 모든 네임스페이스**로 유지
   - **설치된 네임스페이스** 필드에 대해 Operator를 설치할 특정 네임스페이스를 선택, **Red Hat은 rhacs-operators** 네임스페이스에 Kubernetes Operator용 Red Hat Advanced Cluster Security를 설치할 것을 권장
@@ -104,17 +131,17 @@ Red Hat Advanced Cluster Security for Kubernetes는 다음 방법으로 설치 �
 
 - Install 클릭
 
-  ![04_acs_operator_install](C:\Works\01_자료\RHACS\Operators\04_acs_operator_install.png)
+  ![06_acs_operator_install](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/06_acs_operator_install.png)
 
 - 확인
 
   - 설치가 완료되면 **Operator > 설치된 운영자로 이동 > 설치 확인
 
-    ![05_acs_installed_operators](C:\Works\01_자료\RHACS\Operators\05_acs_installed_operators.png)
+    ![05_acs_installed_operators](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/05_acs_installed_operators.png)
 
 
 
-### 2.2 Verifying Central Installation
+### 2.3 Verifying Central Installation
 
 Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Central입니다. `Central`은 사용자 지정 리소스를 사용하여 OpenShift Container Platform에 `Central`을 설치할 수 있습니다. `Central`은 한 번만 배포하고 동일한 `Central` 설치를 사용하여 여러 개의 개별 클러스터를 모니터링 할 수 있습니다.
 
@@ -122,13 +149,15 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
 
 
 
-**2.2.1 Procedure**
+**2.3.1 Procedure**
 
 - 콘솔 접속 >  `stackrox`라는 새로운 프로젝트 생성
 
-  ![06_creating_new_project](C:\Works\01_자료\RHACS\Operators\06_creating_new_project.png)
+  ![07_creating_new_project](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/07_creating_new_project.png)
 
 - Operators > Installed Operators > Advanced Cluster Security for Kubernetes > Central 생성
+
+  ![08_creating_centrals](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/08_creating_centrals.png)
 
 - 설치 확인
 
@@ -144,29 +173,29 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
 
 - 네트워킹 > 라우트 > central 라우트를 통해 RHACS 콘솔 접속
 
-  ![08_rhacs_console](C:\Works\01_자료\RHACS\Operators\08_rhacs_console.png)
+  ![09_rhacs_console](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/09_rhacs_console.png)
 
 
 
-### 2.3 Generating Init Bundle 
+### 2.4 Generating Init Bundle 
 
 보안 클러스터를 생성하기 위해서는 init Bundle을 생성해야 합니다. 보안 클러스터는 이 번들을 사용하여 Central에 인증합니다. roxctl CLI를 사용하거나 RHACS 포털에서 init bundle을 생성할 수 있습니다.
 
-**2.3.1) Generating an init bundle by using the RHACS portal**
+**2.4.1 Generating an init bundle by using the RHACS portal**
 
 - RHACS 포털 접속 > Platform Configuration > Integration > Authentication Tokens  항목 > Cluster Init Bundle 선택 > Generate bundle
 
-  ![09_cluster_init_buldle](C:\Works\01_자료\RHACS\Operators\09_cluster_init_buldle.png)
+  ![10_cluster_init_buldle](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/10_cluster_init_buldle.png)
 
-  ![10_generate_bulde](C:\Works\01_자료\RHACS\Operators\10_generate_bulde.png)
+  ![11_generate_bulde](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/11_generate_bulde.png)
 
-  ![11_generate_bundle_02](C:\Works\01_자료\RHACS\Operators\11_generate_bundle_02.png)
+  ![12_generate_bundle_02](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/12_generate_bundle_02.png)
 
   생성된 Cluster Init Bundle 파일을 다운로드 받습니다. 
 
   **Download Kubernetes secretes file 선택**
 
-**2.3.2) Creating resources by using the init bundle**
+**2.4.2 Creating resources by using the init bundle**
 
 - 위에서 저장한 secret 파일을 저장합니다.  
 
@@ -340,15 +369,15 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
   oc create -f init-bundle.yaml -n stackrox
   ```
 
-### 2.4 Installing Secured Cluster Services
+### 2.5 Installing Secured Cluster Services
 
 `SecuredCluster` 사용자 지정 리소스를 사용하여 클러스터에 보안 클러스터 서비스를 설치 할 수 있습니다. 모니터링하려는 환경의 모든 클러스터에 보안 클러스터 서비스를 설치해야 합니다.
 
-**2.4.1) Process**
+**2.5.1 Process**
 
 - `stackrox` 프로젝트 선택 > Operators > Installed Operators > Red Hat Advanced Security for Kubernetes 선택 > Secured Cluster 선택 > 생성
 
-  ![12_secured_cluster](C:\Works\01_자료\RHACS\Operators\12_secured_cluster.png)
+  ![13_secured_cluster](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/13_secured_cluster.png)
 
 
 
