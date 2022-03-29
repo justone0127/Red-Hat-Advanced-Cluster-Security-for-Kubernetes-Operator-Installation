@@ -401,6 +401,9 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
   ```
 
   RHACS는 이러한 배포가 클러스터 제출되는 즉시 보안 위험 및 정책 위반에 대해 자동으로 스캔합니다.
+  
+- RHACS 콘솔 확인
+  ![16_rhacs_console_02](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/16_rhacs_console_02.png)
 
 
 
