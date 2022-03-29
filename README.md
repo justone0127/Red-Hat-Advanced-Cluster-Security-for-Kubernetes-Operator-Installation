@@ -166,7 +166,7 @@ Red Hat Advanced Cluster Security for Kubernetes의 주용 구성요소는 Centr
   ![15_rhacs_route](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/15_rhacs_route.png)
 또는
     ```bash
-    oc -n stackrox get route central'
+    oc -n stackrox get route central
     ```
 
 **RHACS 콘솔 접속**
