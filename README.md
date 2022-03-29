@@ -34,14 +34,6 @@ Centralized components는 한 번만 배포하고 동일한 설치를 사용하�
 - Scanner : Red Hat Advanced Cluster for Security for Kubernetes에는 Scanner라는 이미지 취약성 스캔 구성요소가 포함되어 있습니다. 모든 이미지 레이어를 분석하여 CVE(Common Vulnerabilities and Exposures) 목록에서 알려진 취약점을 확인합니다. Scanner는 또한 패키지 관리자가 설치한 패키지의 취약점과 여러 프로그래밍 언어에 대한 종속성을 식별합니다.
 
 
-**1.1.2  SecuredCluster**
-
-- Sensor: Red Hat Advanced Cluster for Security for Kubernetes는 Sensor 구성 요소를 사용하여 Kubernetes 및 OpenShift Container Platform 클러스터를 모니터링합니다. 정책 감지 및 시행을 위해 OpenShift Container Platform 또는 Kubernetes API 서버와 상호 작용을 처리하고 Collector와 조정합니다.
-- Collector : Collector는 클러스터 노드의 컨테이너 활동을 분석하고 모니터링합니다. 컨테이너 런타임 및 네트워크 활동에 대한 정보를 수집하여 수집된 데이터를 Sensor로 보냅니다.
-- Admission controller : Admission controller는 Red Hat Advanced Cluster for Security for Kubernetes의 보안 정책을 위반하는 워크로드를 생성하는 것을 방지합니다.
-
-
-
 ### 1.2 Per-cluster components
 
 모니터링하려는 각 클러스터에 클러스터별 구성 요소를 배포합니다. Red Hat Advanced Cluster Security for Kubernetes에는 다음과 같은 클러스터별 구성요소가 포함됩니다.
