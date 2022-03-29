@@ -32,8 +32,6 @@ Centralized components는 한 번만 배포하고 동일한 설치를 사용하�
 
 - Central :  Central은 Red Hat Advanced Cluster for Security for Kubernetes의 주요 구성요소이며 Kubernetes 배포로 설치됩니다. 데이터 지속성, API 상호 작용 및 사용자 인터페이스(포털) 액세스를 처리합니다. 동일한 Central 인스턴스를 사용하여 여러 OpenShift Container Platform 또는 Kubernetes 클러스터를 보호할 수 있습니다.
 - Scanner : Red Hat Advanced Cluster for Security for Kubernetes에는 Scanner라는 이미지 취약성 스캔 구성요소가 포함되어 있습니다. 모든 이미지 레이어를 분석하여 CVE(Common Vulnerabilities and Exposures) 목록에서 알려진 취약점을 확인합니다. Scanner는 또한 패키지 관리자가 설치한 패키지의 취약점과 여러 프로그래밍 언어에 대한 종속성을 식별합니다.
-  - ==Scanner는 다른 통합 취약접 스캐너에서 아직 스캔하지 않은 이미지만 스캔합니다. 이는 Red Hat Advanced Cluster for Security for Kubernetes를 다른 취약성 스캐너와 통합한 경우 스캐너가 가능한 경우 통합 스캐너의 스캔 결과를 확인하고 사용함을 의미합니다.==
-
 
 
 **1.1.2  SecuredCluster**
