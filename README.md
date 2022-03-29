@@ -125,7 +125,7 @@ Red Hat Advanced Cluster Security for Kubernetes는 다음 방법으로 설치 �
 
 - 확인
 
-  - 설치가 완료되면 **Operator > 설치된 운영자로 이동 > 설치 확인
+  - 설치가 완료되면 **Operator > 설치된 운영자로 이동 > 설치 확인**
 
     ![05_acs_installed_operators](https://github.com/justone0127/Red-Hat-Cluster-Security-for-Kubernetes-Operator-Installation/blob/main/images/05_acs_installed_operators.png)
 
